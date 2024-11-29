@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        #flip{
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: solid 1px #666;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        #panel{
+            padding: 50px;
+            display: none;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: solid 1px #666;
+            border-radius: 3px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="images/Mansehra.jpg" alt="" height="350px" width="450px" id="img">
+        <br>
+        <button id="hide">hide</button>
+        <button id="show">show</button>
+    </div>
+    <br>
+    <button id="animation">animate</button>
+    <div style="background:rgb(11, 11, 226); height: 100px; width: 100px;position: absolute; margin-top: 10px;" id="mydiv">
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="stop" style="margin-top: 150px;">Stop sliding</button>
+    <div id="flip">Click to slide down panel</div>
+    <div id="panel">Hello world!</div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("#hide").click(function(){
+            $("#img").hide();
+         });
+         $("#show").click(function(){
+        $("#img").show();
+         });
+
+        $("#animation").click(function(){
+            $("#mydiv").animate({
+                left: '400px',
+                height: '200px',
+                width: '200px',
+                opacity: '0.7'
+            });
+        });
+
+        $("#flip").click(function(){
+            $("#panel").slideToggle(1000);
+        });
+
+        $("#stop").click(function(){
+            $("#panel").stop();
+        });
+
+    });
+</script>
+</html>
